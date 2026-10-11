@@ -1,0 +1,13 @@
+name: astrbot_plugin_nano_banana_acedatacloud
+display_name: Nano Banana by Ace Data Cloud
+short_desc: Generate or edit one Nano Banana image and retrieve the final result in chat.
+desc: Submit one Nano Banana image job through your Ace Data Cloud account, then query the same task ID for final image URLs.
+version: 0.1.0
+author: acedatacloud
+repo: https://github.com/AceDataCloud/NanoBananaAstrBot
+astrbot_version: ">=4.28.2,<5"
+tags:
+  - Nano Banana
+  - AI image
+  - image editing
+  - Ace Data Cloud
