@@ -1,0 +1,31 @@
+{
+  "environment": {
+    "astrbot_version": "4.28.2",
+    "installation": "isolated editable local plugin installation",
+    "chat_model": "gpt-4.1-mini through the generic OpenAI-compatible source",
+    "marketplace_installation": "not tested; AstrBot Cloud listing pending"
+  },
+  "primary_case": {
+    "model": "nano-banana-2-lite",
+    "resolution_requested": "1K",
+    "aspect_ratio_requested": "1:1",
+    "generation_tool": "nano_banana_generate_image",
+    "generation_tool_calls": 1,
+    "lookup_tool": "nano_banana_get_task",
+    "lookup_tool_calls": 1,
+    "task_id": "af9aa308-ad7e-4d92-85a5-1318aaa64db9",
+    "trace_id": "55942280-6688-4268-af36-fef1d24234cc",
+    "terminal_status": "succeeded",
+    "image_count": 1,
+    "image_url": "https://cdn.acedata2.cloud/nanobanana/a986ecf686c9fcaec4fd7d8fd4f3ebc4712086bc52b5c95e7b973370287ee4e7.jpg",
+    "media_http_status": 200,
+    "media_content_type": "image/jpeg",
+    "image_width": 1024,
+    "image_height": 1024,
+    "usage_api_path": "/nano-banana/images",
+    "usage_status_code": 200,
+    "cost_rule_credits_before_discount": 0.14,
+    "usage_deducted_credits": 0.126
+  },
+  "scope_limit": "Single-image text generation and same-task lookup were run through AstrBot chat. Editing and the other models were validated structurally but not generated. Official market installation remains open."
+}
