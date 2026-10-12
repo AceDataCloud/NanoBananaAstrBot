@@ -2,7 +2,7 @@
 
 Generate or edit one Nano Banana image in an AstrBot conversation through your own Ace Data Cloud account. `nano_banana_generate_image` submits one job, and `nano_banana_get_task` retrieves that same task until its final image is ready.
 
-[简体中文指南](readme/README_zh_Hans.md) · [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images) · [Nano Banana Tasks API](https://platform.acedata.cloud/documents/nano-banana-tasks) · [Current prices](https://platform.acedata.cloud/services/nano-banana)
+[简体中文指南](readme/README_zh_Hans.md) · [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_images) · [Nano Banana Tasks API](https://platform.acedata.cloud/documents/nano-banana-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_tasks) · [Current prices](https://platform.acedata.cloud/services/nano-banana?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_services_nano_banana)
 
 ## Find and install
 
@@ -12,7 +12,9 @@ The official AstrBot Cloud listing has not yet been published. After the source 
 
 ## Configure your key
 
-In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications), copy a generation API key from your General application or create a key that permits both `/nano-banana/images` and `/nano-banana/tasks`. Check the current price for your model and resolution before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Nano Banana access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
+New account? Register and sign in first. If the Applications page has no General application yet, choose **Initialize General Application**, then continue with the key steps below.
+
+In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_api_key), copy a generation API key from your General application or create a key that permits both `/nano-banana/images` and `/nano-banana/tasks`. Check the current price for your model and resolution before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Nano Banana access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
 
 Select a chat model that supports tool calling. Allow both Nano Banana tools in the conversation's profile and persona.
 
