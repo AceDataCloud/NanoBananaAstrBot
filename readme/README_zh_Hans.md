@@ -2,21 +2,54 @@
 
 通过自己的 Ace Data Cloud 账号，在 AstrBot 对话中生成或编辑单张 Nano Banana 图片。`nano_banana_generate_image` 提交一次任务，`nano_banana_get_task` 用相同 ID 查询最终结果。
 
+**本 PR 的目标版本为 0.1.1**：新增原生帮助及管理员查询指令、双语配置和图文说明。合并和市场发布前，当前 0.1.0 安装不会自动获得这些入口。
+
+这是 **Ace Data Cloud 提供的 Nano Banana 独立集成**，不是 Nano Banana 厂商或 AstrBot 团队的官方插件。使用自己的 Ace 账号和 API Key；不要填写其他平台的密钥。
+
 [English guide](../README.md) · [Nano Banana 图片 API](https://platform.acedata.cloud/documents/nano-banana-images?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_images) · [Nano Banana 任务 API](https://platform.acedata.cloud/documents/nano-banana-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_tasks) · [当前价格](https://platform.acedata.cloud/services/nano-banana?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_services_nano_banana)
 
 ## 搜索与安装
 
-在 AstrBot WebUI 打开 **Extensions → Plugins → AstrBot Plugin Market**，搜索 **Nano Banana**。核对卡片名称 **Nano Banana by Ace Data Cloud**、作者 **acedatacloud** 和 [Nano Banana 服务图标](https://cdn.acedata.cloud/859plc.jpg)，安装后到 **Installed** 检查加载状态。
+当前上游文档（2026-10-18）：侧栏 **插件 → 顶部插件 → 插件市场 / 已安装**；旧 4.28.2 英文界面可能显示 Extensions。插件参数在已安装卡片齿轮里设置，**不要把服务插件 Key 填进模型提供商**。
 
-AstrBot Cloud 官方上架尚未完成。源码合并发布后，可在 **Installed → Install (+) → Install from URL** 输入 `https://github.com/AceDataCloud/NanoBananaAstrBot` 预览。URL 安装不代表官方市场已上架或安装已验证。
+**发布状态（2026-10-18）：尚未在官方市场上架。** 正式发布后，先打开 [AstrBot Cloud 插件市场](https://cloud.astrbot.app/market)，搜索 **Nano Banana**，再核对 **Nano Banana by Ace Data Cloud / acedatacloud**。当前请用下面的 Git 仓地址手动安装；不要把仓库安装说成官方市场收录。
+
+AstrBot Cloud 官方上架尚未完成。源码已合并，可在 **Plugins → Plugins → Installed → Install Plugin (+) → Install from URL** 输入 `https://github.com/AceDataCloud/NanoBananaAstrBot` 预览。URL 安装不代表官方市场已上架或安装已验证。
 
 ## 配置 Key
 
-首次使用请先注册并登录；如果应用页还没有通用应用，点击 **初始化通用应用（Initialize General Application）**，再按下面步骤管理密钥。
+先[注册或登录 Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_signup)；首次没有通用应用时，先初始化 **General application**。下图取自同一 Ace 应用管理页面，不是 AstrBot 界面。
 
 到 [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_api_key) 复制 General application 的生成 API Key，或创建同时允许 `/nano-banana/images` 和 `/nano-banana/tasks` 的 Key。提交前检查所选模型与分辨率的当前价格。在插件设置 **Ace Data Cloud generation API key with Nano Banana access** 中粘贴 Key 本身；不要加 `Bearer `，也不要使用 `platform-...` 管理 Token。AstrBot WebUI 会遮蔽字段，但数据目录会保存原值，请保护该目录。
 
-选择支持工具调用的聊天模型，在当前 Profile 和 Persona 中允许两个 Nano Banana 工具。
+使用 Agent 工具时，选择支持工具调用的聊天模型，在当前 Profile 和 Persona 中允许两个 Nano Banana 工具。
+
+1. 打开 **General application**，用图中 **1** 复制现有 Key，或点 **2 Manage Keys → Create** 创建专用 Key。
+
+![复制 Ace Key 或管理专用 Key（已脱敏）](../_assets/tutorial/get-api-key-en.png)
+
+2. 可把名称设为 `AstrBot Nano Banana`，按需要设置到期/限额；Allowed APIs 同时包含 `/nano-banana/images` 和 `/nano-banana/tasks`。截图的 Dify tutorial 只是旧示例名称。
+
+![创建专用 Key（共享 Ace 页面，非 AstrBot）](../_assets/tutorial/create-api-key-en.png)
+
+图片于 2026-10-18 复用核验，原始拍摄日期未提供；凭据与余额已脱敏。 [来源和版本边界](../_assets/tutorial/sources.json)。
+
+### 在 AstrBot 粘贴的位置
+
+打开 **插件 → 插件 → 已安装**，点击 **Nano Banana by Ace Data Cloud** 卡片齿轮，把 Key 填入 **Ace Data Cloud generation API key with Nano Banana access**（保存字段为 `api_key`）并保存。不要填 `Bearer `；也不要在聊天里输入 Key。
+
+![AstrBot 官方历史插件配置参考，非本插件运行截图](../_assets/tutorial/astrbot-plugin-config-reference.png)
+
+此图是 AstrBot 官方 `helloworld` 配置示例，界面标签 v3.4.14（构建 v3.4.9），不是 Ace 配置或运行证明。上方说明给出了本插件的准确字段和当前菜单；新版本布局可能不同。
+
+## 无需聊天模型的原生指令
+
+| 输入 | 作用 |
+| --- | --- |
+| `/nanobanana_ace` | 显示本服务、Token 配置和查询用法，不请求外部 API。 |
+| `/nanobanana_ace_task <task_id>` | 仅 AstrBot 管理员：查询一个已有任务，返回状态与最终媒体，不调用 LLM 或生成。 |
+
+指令采用默认 `/` 前缀；自定义唤醒前缀时相应替换。管理员身份由 AstrBot 判断；同一实例的插件 Key 是共享配置，因此查询指令默认限管理员。其他用户继续使用受当前人格/配置允许的 Agent 工具。`pending` 时稍后只查同一编号，`failed` 时按原 task/trace 排查。
 
 ## 只生成一次，再查同一任务
 
