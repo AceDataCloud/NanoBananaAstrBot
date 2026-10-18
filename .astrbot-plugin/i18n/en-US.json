@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "display_name": "Nano Banana by Ace Data Cloud",
+    "short_desc": "Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud.",
+    "desc": "Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud. Configure your own Ace API key. /nanobanana_ace shows help; administrators use /nanobanana_ace_task for an existing task. This integration is provided by Ace Data Cloud."
+  },
+  "config": {
+    "api_key": {
+      "description": "Ace Data Cloud API Key for Nano Banana",
+      "hint": "Copy/create a dedicated key in Ace Applications → General application → Manage Keys. Allow /nano-banana/images and /nano-banana/tasks. No Bearer prefix; never paste into chat. Masking does not encrypt the data directory."
+    }
+  }
+}
