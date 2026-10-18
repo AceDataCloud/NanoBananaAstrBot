@@ -20,6 +20,7 @@ MODELS = BASE_MODELS | {model + ":official" for model in BASE_MODELS}
 BASE_RATIOS = {"21:9", "1:1", "4:3", "3:2", "2:3", "5:4", "4:5", "3:4", "16:9", "9:16"}
 EXTRA_RATIOS = {"1:4", "4:1", "1:8", "8:1"}
 HIGH_RESOLUTION_MODELS = {"nano-banana-2", "nano-banana-pro"}
+FAILED = {"failed", "error", "cancelled", "canceled", "rejected"}
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -73,7 +74,7 @@ class NanoBananaClient:
                 "Authorization": "Bearer " + self._api_key,
                 "Accept": "application/json",
                 "Content-Type": "application/json",
-                "User-Agent": "AceDataCloudAstrBot/0.1.0",
+                "User-Agent": "AceDataCloudAstrBot/0.1.1",
             },
             method="POST",
         )
@@ -178,7 +179,23 @@ class NanoBananaClient:
         if not isinstance(response, dict):
             response = {}
         trace_id = str(response.get("trace_id") or trace_id)
-        if response.get("success") is False or response.get("error"):
+        state = str(response.get("state") or response.get("status") or "").lower()
+        data = response.get("data")
+        item_states = (
+            {
+                str(item.get("state") or item.get("status") or "").lower()
+                for item in data
+                if isinstance(item, dict)
+            }
+            if isinstance(data, list)
+            else set()
+        )
+        if (
+            state in FAILED
+            or item_states & FAILED
+            or response.get("success") is False
+            or response.get("error")
+        ):
             return {
                 "task_id": task_id,
                 "trace_id": trace_id,

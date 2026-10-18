@@ -67,6 +67,10 @@ To edit an image you own or may process, include its public HTTPS URL as `image_
 
 ## Verify and troubleshoot
 
+### Cancelled tasks and interrupted waiting
+
+An explicit failed/cancelled/rejected task is terminal: the plugin returns `status: failed`, `success: false` and no media, even if `finished_at` is still empty. It does not resubmit. Cancelling a local chat/command stops waiting locally; it does **not** cancel an upstream generation, and an already-started HTTP request may still finish. Inspect the original task/history and keep the same ID; there is no upstream-cancel command in this plugin.
+
 In Ace Data Cloud usage, match a returned trace ID when available. Pricing differs by model, resolution, and final output; check current pricing rather than treating an estimate as a charge. A task lookup reads an existing job and does not submit another generation.
 
 | Symptom | Check |
@@ -85,3 +89,21 @@ The key goes only to `https://api.acedata.cloud`; redirects are rejected. The pl
 On official AstrBot `v4.28.2`, an isolated editable installation registered both tools. ChatUI submitted one `nano-banana-2-lite` 1K image and later queried the same task ID through `nano_banana_get_task`, without another generation. The final JPEG responded HTTP 200, `image/jpeg`, and decoded at 1024×1024. The exact generation trace matched a successful `/nano-banana/images` usage row with 0.126 Credits deducted; the current cost rule lists 0.14 Credits before the account discount. See the [sanitized evidence](tests/e2e-results.json). This is a local editable installation; official Cloud review, market installation, and a first call from a market installation remain open.
 
 `logo.png` is a PNG encoding of the current [Nano Banana service icon](https://cdn.acedata.cloud/859plc.jpg), with no redrawing. The source JPEG SHA-256 is `047c3d1a8252a18ccfb65ac09f3f1e2a87ea70525db01fd54f5d70bc312d9814`; the packaged PNG SHA-256 is `22bffc409143a7863f1fb7de04f385c13cdcac799fdba89db152fdaaf55d7379`.
+
+## Reproduce the no-cost host check
+
+From this repository in an isolated Python 3.12 environment:
+
+```bash
+uv venv --python 3.12 .venv-host
+uv pip install --python .venv-host/bin/python astrbot==4.29.0
+.venv-host/bin/python scripts/verify_host.py
+```
+
+The check needs no API Key and starts no server. It imports real AstrBot
+decorators, registers both commands/two tools, checks admin/non-admin access,
+masked-key schema, missing-Key handling and cancellation propagation with
+socket access blocked. Fake events and mocked cancellation do not establish
+a full message-dispatcher, market install, live generation, task ownership,
+new billing or signup/conversion result. Use normal `python -m pytest -q`
+for transport and command regression tests.
