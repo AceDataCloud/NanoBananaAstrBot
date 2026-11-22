@@ -6,7 +6,7 @@ Generate or edit one Nano Banana image in an AstrBot conversation through your o
 
 This independent **Nano Banana integration is provided by Ace Data Cloud**. It is not an official plugin from the Nano Banana publisher or the AstrBot team. Use your own Ace account and API key.
 
-[简体中文指南](readme/README_zh_Hans.md) · [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_images) · [Nano Banana Tasks API](https://platform.acedata.cloud/documents/nano-banana-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_documents_nano_banana_tasks) · [Current prices](https://platform.acedata.cloud/services/nano-banana?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_services_nano_banana)
+[简体中文指南](readme/README_zh_Hans.md) · [Nano Banana Images API](https://platform.acedata.cloud/documents/nano-banana-images?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [Nano Banana Tasks API](https://platform.acedata.cloud/documents/nano-banana-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) · [Current prices](https://platform.acedata.cloud/services/nano-banana?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen)
 
 ## Find and install
 
@@ -18,9 +18,9 @@ The official AstrBot Cloud listing has not yet been published. The source releas
 
 ## Configure your key
 
-[Register or sign in to Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_signup) first. Initialize **General application** if it does not exist. The following images show the shared Ace Applications page, not AstrBot.
+[Register or sign in to Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen) first. Initialize **General application** if it does not exist. The following images show the shared Ace Applications page, not AstrBot.
 
-In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=nanobananaastrbot_readme_api_key), copy a generation API key from your General application or create a key that permits both `/nano-banana/images` and `/nano-banana/tasks`. Check the current price for your model and resolution before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Nano Banana access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
+In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen), copy a generation API key from your General application or create a key that permits both `/nano-banana/images` and `/nano-banana/tasks`. Check the current price for your model and resolution before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Nano Banana access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
 
 For Agent-tool use, select a chat model that supports tool calling. Allow both Nano Banana tools in the conversation's profile and persona.
 
