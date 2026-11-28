@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "display_name": "Nano Banana by Ace Data Cloud",
+    "display_name": "Nano Banana",
     "short_desc": "Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud.",
     "desc": "Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud. Configure your own Ace API key. /nanobanana_ace shows help; administrators use /nanobanana_ace_task for an existing task. This integration is provided by Ace Data Cloud."
   },

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title">
+  <title id="title">Banana in a crop frame</title>
+  <defs>
+    <linearGradient id="background" x1="30" y1="8" x2="221" y2="245" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#285345"/>
+      <stop offset="1" stop-color="#102E2A"/>
+    </linearGradient>
+    <linearGradient id="peel" x1="75" y1="115" x2="173" y2="177" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFEC80"/>
+      <stop offset="1" stop-color="#FFBE35"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="248" height="248" rx="54" fill="url(#background)"/>
+  <g fill="none" stroke="#8ED9A4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M56 96V68a10 10 0 0 1 10-10h28"/>
+    <path d="M200 160v28a10 10 0 0 1-10 10h-28"/>
+  </g>
+  <path d="M68 135c18 14 42 17 64 10 22-7 39-22 49-46 2-5 5-7 8-7 4 0 7 4 7 9 2 37-19 71-52 83-30 12-61-2-75-26-4-7-7-16-5-21 1-3 2-4 4-2z" fill="#16291C" opacity=".55" transform="translate(0 5)"/>
+  <path d="M68 131c18 14 42 17 64 10 22-7 39-22 49-46 2-5 5-7 8-7 4 0 7 4 7 9 2 37-19 71-52 83-30 12-61-2-75-26-4-7-7-16-5-21 1-3 2-4 4-2z" fill="url(#peel)"/>
+  <path d="M84 153c18 12 40 14 60 6 16-6 28-17 36-30" fill="none" stroke="#D4911D" stroke-width="5" stroke-linecap="round"/>
+  <path d="M182 97c3-10 2-18-1-26-1-4 1-7 5-8l5-1c3 0 6 2 6 5-1 12-2 22-5 31z" fill="#EEB24B"/>
+  <path d="M182 70l12-3" stroke="#80512D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M63 130l8 5-4 8-5-5c-2-3-2-6 1-8z" fill="#9E6436"/>
+</svg>
