@@ -74,7 +74,7 @@ class NanoBananaClient:
                 "Authorization": "Bearer " + self._api_key,
                 "Accept": "application/json",
                 "Content-Type": "application/json",
-                "User-Agent": "AceDataCloudAstrBot/0.1.1",
+                "User-Agent": "AceDataCloudAstrBot/0.1.2",
             },
             method="POST",
         )

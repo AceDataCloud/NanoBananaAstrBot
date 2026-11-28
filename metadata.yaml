@@ -1,12 +1,13 @@
 name: astrbot_plugin_nano_banana_acedatacloud
-display_name: Nano Banana by Ace Data Cloud
+display_name: Nano Banana
 short_desc: Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud.
 desc: >-
   Nano Banana image generation/editing and same-task retrieval through Ace Data Cloud. Install this Ace Data Cloud integration, configure your own API key, and use /nanobanana_ace for setup or the administrator-only /nanobanana_ace_task for an existing task. Not an official Nano Banana publisher plugin.
-version: 0.1.1
+version: 0.1.2
 author: acedatacloud
 repo: https://github.com/AceDataCloud/NanoBananaAstrBot
 astrbot_version: ">=4.28.2,<5"
+category: integration
 tags:
   - Nano Banana
   - NanoBanana
